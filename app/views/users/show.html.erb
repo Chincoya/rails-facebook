@@ -1,3 +1,9 @@
 <h1><%= @user.name %></h1>
 
-<%= link_to  'Logout', destroy_user_session_path, method: :delete %>
+
+<h2>Biography</h2>
+<% @user.posts.each do |post| %>
+  <%= post.content %>
+  <h6><%= post.created_at %></h6>
+  <hr>
+<% end %>

@@ -5,7 +5,11 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
+  #   if @user = current_user
+  #     redirect_to @user
+  #   else
+  #     super
+  #   end
   # end
 
   # POST /resource/sign_in
