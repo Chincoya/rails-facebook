@@ -6,4 +6,5 @@
   <%= poster(post) %>
   <h6><%= post.created_at %></h6>
   <hr>
+  <%= render 'likes/likes', locals: {post: post} %>
 <% end %>

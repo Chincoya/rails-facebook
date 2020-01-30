@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts, only: %i[new create index]
+  resources :likes, only: %i[create destroy]
   devise_for :users,  controllers: { sessions: 'users/sessions', registrations: 'users/registrations'}
   devise_scope :user do
     root to: 'users/sessions#new'
