@@ -1,0 +1,12 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@post) do |f| %>
+
+      <%= f.label 'WHat\'s on your mind?', :content %>
+      <%= f.text_area :content, class: 'form-control' %>
+
+      <%= f.submit "Create post", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
