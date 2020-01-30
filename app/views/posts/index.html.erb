@@ -3,7 +3,7 @@
 <% @posts.each do |post| %>
   <%= post.content %>
   <br>
-  <%= User.find(post.user_id).name %>
+  <%= poster(post) %>
   <h6><%= post.created_at %></h6>
   <hr>
 <% end %>
