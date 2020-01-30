@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -12,18 +14,16 @@ class PostsController < ApplicationController
     if current_user.posts.create(post_params)
       redirect_to posts_path
     else
-      flash.now[:danger] = "Error"
+      flash.now[:danger] = 'Error'
       render 'new'
     end
   end
 
-  def destroy
-  end
-
+  def destroy; end
 
   private
 
-    def post_params
-      params.require(:post).permit(:content)
-    end
+  def post_params
+    params.require(:post).permit(:content)
+  end
 end

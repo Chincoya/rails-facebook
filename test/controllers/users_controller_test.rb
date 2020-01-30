@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     sign_in build(:user)
   end
@@ -22,5 +23,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_path
     assert_response :success
   end
-
 end
