@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  before_action :authenticate_user!
   def create
     post_id = like_params[:post_id]
     current_user.likes.create(likeable: Post.find(post_id)) unless current_user.likes.find_by(likeable_id: post_id)

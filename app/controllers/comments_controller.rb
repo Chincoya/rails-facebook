@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     if current_user.comments.create(comment_params)
       redirect_to root_url
