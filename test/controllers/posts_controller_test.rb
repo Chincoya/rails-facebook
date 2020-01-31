@@ -24,7 +24,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'signed users can create posts' do
-    post posts_path(post: { content: 'Lol' })
+    post posts_path(post: { content: 'Lol' }), headers: { 'HTTP_REFERER' => 'http://localhost:3000/' }
     assert_equal(1, Post.count)
   end
 
