@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     if current_user.posts.create(post_params)
-      redirect_to posts_path
+      redirect_to request.referer
     else
       flash.now[:danger] = 'Error'
       render 'new'

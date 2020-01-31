@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     root to: 'users/sessions#new'
   end
 
+  post 'post/comments', to: 'comments#create'
+  delete 'post/comments', to: 'comments#destroy'
   get '/user', to: 'users#show'
   get '/users', to: 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
