@@ -3,4 +3,4 @@
 
 <h2>Biography</h2>
 <%= render  'posts/UI_new' %>
-<%= render partial: "posts/show", collection: @user.posts.order('created_at DESC'), as: :post %>
+<%= render partial: "posts/show", collection: @posts, as: :post %>

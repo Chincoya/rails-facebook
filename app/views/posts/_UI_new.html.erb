@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(Post.new) do |f| %>
+    <%= form_for(@post) do |f| %>
 
       <%= f.text_area :content, class: 'form-control', placeholder: 'WHat\'s on your mind?' %>
 

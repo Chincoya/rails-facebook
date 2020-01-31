@@ -1,3 +1,3 @@
 <h1>Timeline</h1>
 <%= render  'posts/UI_new' %>
-<%= render partial: "posts/show", collection: @posts.order('created_at DESC'), as: :post %>
+<%= render partial: "posts/show", collection: @posts, as: :post %>
