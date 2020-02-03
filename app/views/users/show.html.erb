@@ -2,10 +2,5 @@
 
 
 <h2>Biography</h2>
-<% @user.posts.each do |post| %>
-  <%= post.content %>
-  <br>
-  <%= poster(post) %>
-  <h6><%= post.created_at %></h6>
-  <hr>
-<% end %>
+<%= render  'posts/UI_new' %>
+<%= render partial: "posts/show", collection: @posts, as: :post %>

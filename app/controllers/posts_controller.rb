@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
     @posts = Post.all.order('created_at DESC')
+    @post = Post.new
   end
 
   def new
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     if current_user.posts.create(post_params)
-      redirect_to posts_path
+      redirect_to request.referer
     else
       flash.now[:danger] = 'Error'
       render 'new'

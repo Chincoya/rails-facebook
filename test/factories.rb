@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :comment do
+    content { 'MyText' }
+    user_id { 1 }
+    post_id { 1 }
+  end
+
+  factory :like do
+    user_id { 1 }
+    likeable_id { 1 }
+    likeable_type { 'MyString' }
+  end
+
   factory :user do
     name { Faker::Name.name }
     email { Faker::Internet.email }

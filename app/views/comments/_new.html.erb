@@ -1,0 +1,5 @@
+<%= form_for([locals[:post], Comment.new]) do |f| %>
+  <%= f.text_area :content, placeholder: 'Write a comment' %>
+  <%= f.hidden_field :post_id, value: locals[:post].id %>
+  <%= f.submit %>
+<% end %>
