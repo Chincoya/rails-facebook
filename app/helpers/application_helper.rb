@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def poster(post)
-    User.find(post.user_id).name
+    post.user.name
   end
 end
