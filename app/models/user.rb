@@ -11,9 +11,10 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
+
   def friends
     friends_array = friendships.confirmed.map{ |friendship| friendship.friend }
-    friends_array += inverse_friendships.confirmed.map{ |friendship| friendship.friend }
+    friends_array += inverse_friendships.confirmed.map{ |friendship| friendship.user }
     friends_array.compact
   end
 
@@ -21,5 +22,13 @@ class User < ApplicationRecord
     friendly = friendships.find_by(friend_id: user.id)
     friendly ||= inverse_friendships.find_by(user_id: user.id)
     friendly
+  end
+
+  def friends_posts
+    all_posts = posts
+    friends.each do |friend|
+      all_posts << friend.posts
+    end
+    all_posts.order('created_at DESC')
   end
 end
