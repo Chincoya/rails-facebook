@@ -2,5 +2,6 @@
 
 <% @users.each do |user| %>
   <%= user.name %>
+  <%= render 'friendships/friends', locals: {user: user} %>
   <hr>
 <% end %>

@@ -7,18 +7,22 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    par_id = params[:id]
-    Like.delete(par_id) if correct_user(Like.find(par_id).user_id)
+    friendship_id = params[:id]
+    Friendship.delete(friendship_id)
+    redirect_to request.referer
+  end
+
+  def update
+    friendship_id = params[:id]
+    friendship = Friendship.find(friendship_id)
+    friendship.confirm = true if friendship.friend_id == current_user.id
+    friendship.save
     redirect_to request.referer
   end
 
   private
 
-  def correct_user(id)
-    current_user.id == id
-  end
-
   def friend_params
-    params.require(:post).permit(:post_id)
+    params.require(:user).permit(:user_id)
   end
 end

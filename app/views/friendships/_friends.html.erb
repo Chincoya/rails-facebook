@@ -1,0 +1,9 @@
+<% friendship = @user.has_friendship(locals[:user]) %>
+<% if friendship == nil %>
+<%= link_to 'Invite Friendship', friendships_path(:params => {user: {user_id: locals[:user].id}}), method: :post %>
+<% elsif friendship.confirm == nil && @user.id != friendship.user_id %>
+<%= link_to 'Reject Friendship', friendship, method: :delete %>
+<%= link_to 'Accept Friendship', friendship, method: :patch %>
+<% else %>
+<%= link_to 'Unfriend', friendship, method: :delete %>
+<% end %> 
