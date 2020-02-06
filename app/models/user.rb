@@ -25,10 +25,13 @@ class User < ApplicationRecord
   end
 
   def friends_posts
-    all_posts = posts
+    all_posts = []
+    all_posts = posts.map{|post| post}
     friends.each do |friend|
-      all_posts << friend.posts
+      all_posts << friend.posts.map{|post| post}
     end
-    all_posts.order('created_at DESC')
+    all_posts.flatten.each {|i| p i }
+
+    all_posts.flatten.sort{ |elem1, elem2| elem2.created_at - elem1.created_at }
   end
 end
