@@ -1,0 +1,5 @@
+<div class="dropdown-item row w-75">
+  <div class='col col-4'> <%= friendship.sent_name %> </div>
+  <%= link_to 'Accept Friend', friendship, method: :patch, class:'col col-4' %>
+  <%= link_to  'Reject Friend', friendship, method: :delete, class: 'col col-4' %>
+</div>

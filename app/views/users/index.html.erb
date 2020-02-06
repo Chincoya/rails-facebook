@@ -1,6 +1,7 @@
 <h1>Users</h1>
 
 <% @users.each do |user| %>
-  <%= user.name %>
+  <%= link_to  user.name, user %>
+  <%= render 'friendships/friends', locals: {user: user} %>
   <hr>
 <% end %>

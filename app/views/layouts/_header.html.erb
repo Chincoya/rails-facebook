@@ -3,6 +3,14 @@
   <% if current_user %>
     <%= link_to  'Users', users_path %>
     <%= link_to  'My Profile', current_user %>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Notifications
+      </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= render partial: 'friendships/UI_friendships', collection: current_user.inverse_friendships.unconfirmed, as: :friendship  %>
+    </div>
+</div>
     <%= link_to  'Logout', destroy_user_session_path, method: :delete %>
   <% end %>
 </nav>

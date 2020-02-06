@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   def create
     if current_user.comments.create(comment_params)
-      redirect_to root_url
+      redirect_to request.referer
     else
       flash.now[:danger] = 'Error 500'
     end
