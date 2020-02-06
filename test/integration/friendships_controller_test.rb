@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class FriendshipTest < ActiveSupport::TestCase
+class FriendshipsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
