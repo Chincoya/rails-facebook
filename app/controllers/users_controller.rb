@@ -3,8 +3,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[show index]
   def show
-    @user = current_user
-    @posts = current_user.posts.order('created_at DESC')
+    @user = params[:format] ? User.find(params[:format]) : current_user
+    @posts = @user.posts.order('created_at DESC')
     @post = Post.new
   end
 
