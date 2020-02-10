@@ -13,7 +13,7 @@
           Notifications
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= render partial: 'friendships/UI_friendships', collection: current_user.inverse_friendships.unconfirmed, as: :friendship %>
+          <%= render partial: 'friendships/UI_friendships', collection: current_user.friendships.unconfirmed, as: :friendship %>
         </div>
       <% end %>
       </div>
