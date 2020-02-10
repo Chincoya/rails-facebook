@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
     new_friend = Friendship.new(user_id: friendship_id, friend_id: @user.id)
     if new_friend.save
       @user.friendships.create(friend_id: friendship_id, confirm: true)
-      flash[:sucess] = 'Friend Added'
+      flash[:success] = 'Friend Added'
     else
       flash[:danger] = 'Error adding friend'
     end
@@ -33,7 +33,7 @@ class FriendshipsController < ApplicationController
       inverse[0].confirm = true
       friendship.save(validate: false)
       inverse[0].save(valdiate: false)
-      flash[:sucess] = 'Frienship Confirmed'
+      flash[:success] = 'Frienship Confirmed'
     end
     redirect_to request.referer
   end

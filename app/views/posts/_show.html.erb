@@ -1,8 +1,17 @@
-<%= post.content %>
-<br>
-<%= poster(post) %>
-<h6><%= post.created_at %></h6>
-<hr>
-<%= render 'likes/likes', locals: {post: post} %>
-<%= render partial: "comments/show", collection: post.comments, as: :comment %>
-<%= render  'comments/new', locals: {post: post} %>
+<div class="w-75 justify-space-between mb-5">
+  <div class="row">
+    <div class="col col-9"><%= post.content %></div>
+    <br>
+    <div class="col col-3"><%= poster(post) %></div>
+  </div>
+  <div class="row mw-100 justify-content-between align-items-end">
+    <p class="text-secondary mb-0 col-3"><small><%= post.created_at %></small></p>
+    <div class="col-3 d-flex flex-wrap justify-content-end">
+      <%= render 'likes/likes', locals: {post: post} %>
+    </div>
+  </div>
+  <ul>
+    <%= render partial: "comments/show", collection: post.comments, as: :comment %>
+  </ul>
+  <%= render  'comments/new', locals: {post: post} %>
+</div>
