@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def poster(post)
-    post.user.name
+    post.user
   end
 end
