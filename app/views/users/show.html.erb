@@ -1,8 +1,10 @@
-<h1><%= @user.name %></h1>
-
+<div class= "container row">
+  <h1 class="col col-6 d-flex justify-content-center align-items-center"><%= @user.name %></h1>
+  <div class="col col-6"><%= gravatar_for(@user, {size: 150}) %></div>
+</div>
 
 <h2>Biography</h2>
-<div class="w-75">
+<div class="w-100">
   <%= render  'posts/UI_new' if @user == current_user %>
 </div>
 <%= render partial: "posts/show", collection: @posts, as: :post %>
