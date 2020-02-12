@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :posts, only: %i[new create index]
   resources :likes, only: %i[create destroy]
   resources :friendships, only: %i[create update destroy]
-  devise_for :users,  controllers: { sessions: 'users/sessions', registrations: 'users/registrations'}
+  devise_for :users,  controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
   devise_scope :user do
     root to: 'users/sessions#new'
   end
