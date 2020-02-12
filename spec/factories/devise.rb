@@ -1,17 +1,31 @@
 FactoryBot.define do
-  factory :user do
-    id {1}
-    name {"Bob"}
-    email {"test@user.com"}
-    password {"qwerty"}
-    # Add additional fields as required via your User model
+  factory :friendship do
+    user_id { 1 }
+    friend_id { 2 }
+    confirm { false }
   end
 
-  # # Not used in this tutorial, but left to show an example of different user types
-  # factory :user do
-  #   id {2}
-  #   email {"test2@admin.com"}
-  #   password {"qwerty"}
-  #   admin {true}
-  # end
+  factory :comment do
+    content { 'MyText' }
+    user_id { 1 }
+    post_id { 1 }
+  end
+
+  factory :like do
+    user_id { 1 }
+    likeable_id { 1 }
+    likeable_type { 'MyString' }
+  end
+
+  factory :user do
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    password { 'password' }
+  end
+
+  factory :post do
+    content { Faker::String.random(length: 25) }
+    user_id { nil }
+  end
+
 end
