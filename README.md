@@ -2,6 +2,8 @@
 
 This repository is meant to be a Facebook-inspired site, in which members can have basic facebook functionality.
 
+### [Live version on Heroku](https://immense-shelf-90273.herokuapp.com/)
+
 ## Getting started
 
 Clone the repository with:
