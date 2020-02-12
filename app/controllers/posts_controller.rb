@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def create
     if current_user.posts.create(post_params)
       redirect_to request.referer
+      flash[:success] = 'Posted'
     else
       flash.now[:danger] = 'Error'
       render 'new'

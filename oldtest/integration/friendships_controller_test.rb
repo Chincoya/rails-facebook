@@ -17,8 +17,8 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
   test 'signed users can send friendship invitations' do
     post friendships_path(params: { user: { user_id: User.last.id } }),
          headers: { 'HTTP_REFERER' => 'http://www.example.com/' }
-    assert_nil Friendship.last.confirm
-    assert_equal(Friendship.last.user_id, User.first.id)
+    assert_nil Friendship.first.confirm
+    assert_equal(Friendship.first.user_id, User.last.id)
   end
 
   test 'user cant confirm invites sent by her' do
@@ -26,7 +26,7 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
          headers: { 'HTTP_REFERER' => 'http://www.example.com/' }
     patch friendship_path(Friendship.last.id),
           headers: { 'HTTP_REFERER' => 'http://www.example.com/' }
-    assert_nil Friendship.last.confirm
+    assert_nil Friendship.first.confirm
   end
 
   test 'user can confirm frienship inviest sent to her' do

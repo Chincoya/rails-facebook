@@ -13,13 +13,11 @@ class User < ApplicationRecord
 
   def friends
     friends_array = friendships.confirmed.map(&:friend)
-    friends_array += inverse_friendships.confirmed.map(&:user)
     friends_array.compact
   end
 
   def friendship?(user)
     friendly = friendships.find_by(friend_id: user.id)
-    friendly ||= inverse_friendships.find_by(user_id: user.id)
     friendly
   end
 

@@ -2,5 +2,7 @@
 
 
 <h2>Biography</h2>
-<%= render  'posts/UI_new' if @user == current_user %>
+<div class="w-75">
+  <%= render  'posts/UI_new' if @user == current_user %>
+</div>
 <%= render partial: "posts/show", collection: @posts, as: :post %>
