@@ -1,0 +1,7 @@
+<li class="row w-100">
+  <div class="col col-3 d-flex justify-content-between">
+    <%= gravatar_for(poster(comment), {size: 40}) %>
+    <%= poster(comment).name %>
+  </div>
+  <p class="col col-6"><%= comment.content %></p>
+</li>

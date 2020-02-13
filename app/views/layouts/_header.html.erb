@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-light sticky-top row w-100 m-0">
+  <div class="col-4 align-self-center">
+    <%= link_to  'Home', (current_user ? posts_path : root_url) %>
+  </div>
+  <div class="col-8 align-self-center">
+    <div class="d-flex flex-row-reverse align-items-center">
+      <% if current_user %>
+          <%= link_to  'Logout', destroy_user_session_path, method: :delete, class: 'mx-2' %>
+          <%= link_to  'My Profile', current_user, class: 'mx-2' %>
+          <%= link_to  'Users', users_path, class: 'mx-2' %>
+      <div class="dropdown float-right">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Notifications
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= render partial: 'friendships/UI_friendships', collection: current_user.friendships.unconfirmed, as: :friendship %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

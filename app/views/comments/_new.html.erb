@@ -1,0 +1,7 @@
+<div class="row">
+  <%= form_for([locals[:post], Comment.new], html: { class:'col-6' }) do |f| %>
+    <%= f.text_area :content, placeholder: 'Write a comment', class: 'form-control' %>
+    <%= f.hidden_field :post_id, value: locals[:post].id %>
+    <%= f.submit 'Comment', class: 'btn btn-info' %>
+  <% end %>
+</div>
